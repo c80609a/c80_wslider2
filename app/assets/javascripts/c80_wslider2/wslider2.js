@@ -28,6 +28,9 @@ var Wslider2 = function (options) {
     // в ответе за загрузку и показ картинок фрейма (во время загрузки покажет прелодаер)
     var _wloader = null;
 
+    // добавляет параллакс при скролле
+    var _parallaxer = null;
+
     //---[ FUNCTIONS ]--------------------------------------------------------------------------------------------------
 
     // инициализация
@@ -49,6 +52,9 @@ var Wslider2 = function (options) {
             _$wimages,
             _$wrapper
         );
+
+        // добавляем параллакс
+        _parallaxer = new Paralaxer(_$wimages);
 
 
     };
