@@ -36,6 +36,24 @@ var Wslider2 = function (options) {
 
     //---[ FUNCTIONS ]--------------------------------------------------------------------------------------------------
 
+    // микро-контроллер: меняет переменную _current_frame, управляет Wloader
+    var _fNextFrame = function () {
+        _current_frame += 1;
+        if (_current_frame >= _images.length) {
+            _current_frame = 0;
+        }
+        //console.log("<wslider._fNextFrame> _current_frame = " + _current_frame);
+        _wloader.checkAndShowFrame(_current_frame);
+    };
+    var _fPrevFrame = function () {
+        _current_frame -= 1;
+        if (_current_frame < 0) {
+            _current_frame = _images.length-1;
+        }
+        //console.log("<wslider._fPrevFrame> _current_frame = " + _current_frame);
+        _wloader.checkAndShowFrame(_current_frame);
+    };
+
     // инициализация
     var _fInit = function (options) {
 
@@ -61,7 +79,7 @@ var Wslider2 = function (options) {
 
         // если фреймов более 1 - добавляем иконку "кликните левой мышкой для смены кадра"
         if (_$wimages.length > 1) {
-            _left_click_icon = new LeftClickIcon(_$wrapper);
+            _left_click_icon = new LeftClickIcon(_$wrapper, _fNextFrame);
         }
 
     };
