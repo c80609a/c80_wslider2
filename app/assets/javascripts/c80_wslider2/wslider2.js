@@ -31,6 +31,9 @@ var Wslider2 = function (options) {
     // добавляет параллакс при скролле
     var _parallaxer = null;
 
+    // если картинок более 1 - добавляем иконку мышки
+    var _left_click_icon = null;
+
     //---[ FUNCTIONS ]--------------------------------------------------------------------------------------------------
 
     // инициализация
@@ -56,6 +59,10 @@ var Wslider2 = function (options) {
         // добавляем параллакс
         _parallaxer = new Paralaxer(_$wimages);
 
+        // если фреймов более 1 - добавляем иконку "кликните левой мышкой для смены кадра"
+        if (_$wimages.length > 1) {
+            _left_click_icon = new LeftClickIcon(_$wrapper);
+        }
 
     };
 

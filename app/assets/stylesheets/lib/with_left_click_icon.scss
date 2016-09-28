@@ -1,0 +1,59 @@
+@mixin _after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  z-index: 556;
+
+  opacity: 0.0;
+  -webkit-transition: opacity .2s ease-in;
+  -moz-transition: opacity .2s ease-in;
+  -ms-transition: opacity .2s ease-in;
+  -o-transition: opacity .2s ease-in;
+  transition: opacity .2s ease-in;
+
+}
+
+.with_left_click_icon {
+  height: 0;
+
+  > div {
+    /*height: 100%;*/ /* NOTE:: рекомендуется устанавливать позицию в custom классах хост приложения */
+    /*top: 67px;*/ /* NOTE:: рекомендуется устанавливать позицию в custom классах хост приложения */
+    
+    width: 80%;
+    z-index: 5556;
+    background-color: rgba(0,0,0,0);
+    cursor: pointer;
+    position: absolute;
+
+    &:after {
+      /*bottom: 0;*/ /* NOTE:: рекомендуется устанавливать позицию в custom классах хост приложения */
+      @include _after;
+      background: transparent url(image_path('left_click_icon.png')) no-repeat 0 0;
+    }
+    
+    &:hover {
+      
+      &:after {
+        opacity: 0.8;
+      }
+      
+    }
+    
+  }
+
+  &.white_icon {
+
+    > div {
+
+      &:after {
+        background: transparent url(image_path('left_click_icon_white.png')) no-repeat 0 0;
+      }
+
+    }
+
+  }
+
+}
