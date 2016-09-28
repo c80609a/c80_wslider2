@@ -56,8 +56,9 @@ div.wslider2 {
     // дополнения к библиотечному, каноничному стилю
     .spinner {
       margin: 0 auto;
-      width: 35px;
-      height: 35px;
+      /*width: 35px;
+      height: 35px;*/
+      position: relative;
     }
 
   }
