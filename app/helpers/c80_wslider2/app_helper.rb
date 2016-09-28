@@ -4,7 +4,7 @@ module C80Wslider2
     def render_wslider2
 
       # извлечём фреймы
-      frames = C80Wslider2::Frame.all
+      frames = C80Wslider2::Frame.all.order('rand()')
 
       # пути до картинок соберём сюда
       images = []

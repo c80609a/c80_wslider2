@@ -6,7 +6,7 @@ var Paralaxer = function (_$wimages) {
 
         $(document).on('scroll', function(){
             var xx = $(this).scrollTop();
-            _$wimages.css('background-position-y', parseInt(xx/3)+'px');
+            _$wimages.css('background-position-y', "-"+parseInt(xx/2)+'px');
         });
 
     };
