@@ -47,10 +47,10 @@ var Preloader = function ($slider_wrapper) {
 
         _$preloader.css('opacity','0');
 
-        // NOTE:: по хардкоду подогнали время под длительность анимации, заданной в scss
+        // NOTE:: по хардкоду подогнали время под длительность анимации, заданной в scss [qweqwe]
         setTimeout(function () {
             _$preloader.css('display','none');
-        },400);
+        },1000);
 
     };
 
