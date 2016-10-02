@@ -18,6 +18,28 @@ var Shower = function ($wimages) {
         _$wimages = $wimages;
     };
 
+    var _fOnResize = function ($div) {
+
+        var $h1 = $div.find('h1');
+        var frame_height = $div.outerHeight();
+        var h1_height = $h1.outerHeight();
+
+        // позиционируем $div_text блок с текстом по вертикали по центру относительно высоты родителя _slider_height
+        var top = (frame_height - h1_height) / 2;
+        $h1.css('top', top + 'px');
+
+    };
+
+    // подставляем текст во фрейм
+    var _fPutTextInFrame = function ($div,props) {
+        //console.log("<_fPutTextInFrame>");
+        //console.log(props); // Object {title: "Оптовая торговля жидкостями для электронных сигарет"}
+        $div.find('h1').text(props["title"]);
+
+        _fOnResize($div);
+
+    };
+
     // низкоуровневый механизм показа картинки с подписями (вызывается только из this.show)
     var _fShow = function ($div, url, props) {
         console.log("<shower2._fShow>\t div class:" + $div.attr('class') + ", url: " + url);
@@ -33,6 +55,9 @@ var Shower = function ($wimages) {
 
         // помечаем его как "показанный сейчас"
         $div.addClass('shown_right_now');
+
+        // подставляем текст во фрейм
+        _fPutTextInFrame($div,props);
 
     };
 

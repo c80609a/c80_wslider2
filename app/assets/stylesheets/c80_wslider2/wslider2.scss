@@ -1,4 +1,5 @@
 div.wslider2 {
+  position: relative;
 
   div.frame {
     display: none;
@@ -28,6 +29,12 @@ div.wslider2 {
 
       -ms-flex-align: center;
       -ms-flex-pack: center;
+    }
+
+    h1 {
+      position: relative;
+      width: 100%;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
     }
 
   }
