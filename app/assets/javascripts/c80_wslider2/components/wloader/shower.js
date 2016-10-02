@@ -16,9 +16,16 @@ var Shower = function ($wimages) {
 
     var _fInit = function ($wimages) {
         _$wimages = $wimages;
+
+        $( window ).resize(_fOnResize);
+
     };
 
-    var _fOnResize = function ($div) {
+    var _fOnResize = function () {
+        _fCenterFrameTitle(_$wimages.filter('.shown_right_now'));
+    };
+
+    var _fCenterFrameTitle = function ($div) {
 
         var $h1 = $div.find('h1');
         var frame_height = $div.outerHeight();
@@ -36,7 +43,7 @@ var Shower = function ($wimages) {
         //console.log(props); // Object {title: "Оптовая торговля жидкостями для электронных сигарет"}
         $div.find('h1').text(props["title"]);
 
-        _fOnResize($div);
+        _fCenterFrameTitle($div);
 
     };
 
