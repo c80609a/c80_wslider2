@@ -1,7 +1,9 @@
 div.wslider2 {
+  position: relative;
 
   div.frame {
     display: none;
+    position: relative;
 
     &.shown_right_now {
 
@@ -28,6 +30,23 @@ div.wslider2 {
 
       -ms-flex-align: center;
       -ms-flex-pack: center;
+    }
+
+    h1 {
+      position: relative;
+      width: 100%;
+      /*text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);*/
+      z-index: 7;
+    }
+
+    div.fadee {
+      position: absolute;
+      top:0;
+      left:0;
+      bottom:0;
+      right:0;
+      background-color: rgba(0,0,0,0.3);
+      z-index: 6;
     }
 
   }

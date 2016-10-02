@@ -1,7 +1,7 @@
 // грузит картинки в "невидимом", фоновом режиме, показывает их
 // другими словами: содержит механику загрузки и показа картинок
 
-var Wloader = function (images, $wimages, $slider_wrapper) {
+var Wloader = function (images, frames_props, $wimages, $slider_wrapper) {
 
     //---[ VARS ]-------------------------------------------------------------------------------------------------------
 
@@ -13,6 +13,9 @@ var Wloader = function (images, $wimages, $slider_wrapper) {
 
     // images - ссылка на полный список урлов картинок для загрузки и отображения
     var _images = images;
+
+    // ссылка на список описаний каждой картинки: h4 - крупный текст и p - мелкий
+    var _frames_props = frames_props;
 
     // собственно, с помощью этого грузим
     var _loader = null;
@@ -34,17 +37,20 @@ var Wloader = function (images, $wimages, $slider_wrapper) {
         // фиксируем урл текущей картинки
         var u = _images[frame_index];
 
+        // фиксируем свойства картинки (подпись)
+        var pr = _frames_props[frame_index];
+
         // инициация внутреннего механизма загрузки картинки (из кэша или из сети)
         _$loader.attr({ src:u });
 
         // если картинка уже есть в кэше - просто покажем её
         if (_loader.complete || _loader.readyState === 4) {
-            __fShowFrame(u);
+            __fShowFrame(u, pr);
         }
 
         // если картинки нет в кэше - запросим её с сервера
         else {
-            __fLoadFrame(u, __fShowFrame);
+            __fLoadFrame(u, __fShowFrame, pr);
         }
 
     };
@@ -53,9 +59,9 @@ var Wloader = function (images, $wimages, $slider_wrapper) {
 
     // вызывается только из _fCheckAndShowFrame
     // отобразить картинку фрейма url со свойствами props
-    var __fShowFrame = function (url) {
+    var __fShowFrame = function (url, props) {
         console.log("<wloader2.__fShowFrame>\t Отображем картинку фрейма: url = " + url);
-        _shower.show(url);
+        _shower.show(url, props);
     };
 
     // вызывается только из _fCheckAndShowFrame

@@ -13,8 +13,11 @@ var Wslider2 = function (options) {
         height: 100
     };
 
-    // здесь содержится список урлов картинок, которые надо отобразить в слайдере
+    // MODEL: здесь содержится список урлов картинок, которые надо отобразить в слайдере
     var _images = null;
+
+    // MODEL: здесь содержится список описаний каждой картинки: h4 - крупный текст и p - мелкий
+    var _frames_props = null;
 
     // 2 дива, в которых отрисовываются картинки (они сменяют друг друга)
     var _$wimages = null;
@@ -67,9 +70,13 @@ var Wslider2 = function (options) {
         // зафиксируем MODEL: список картинок для отображения
         _images = _$wrapper.data('images');
 
+        // зафиксируем MODEL: массив свойств картинок (текстовые подписи фреймов), разложенные в том же порядке что и _images
+        _frames_props = _$wrapper.data('props');
+
         // инициализация механизма загрузки и показа картинок
         _wloader = new Wloader(
             _images,
+            _frames_props,
             _$wimages,
             _$wrapper
         );
@@ -78,7 +85,7 @@ var Wslider2 = function (options) {
         _parallaxer = new Paralaxer(_$wimages);
 
         // если фреймов более 1 - добавляем иконку "кликните левой мышкой для смены кадра"
-        if (_$wimages.length > 1) {
+        if (_images.length > 1) {
             _left_click_icon = new LeftClickIcon(_$wrapper, _fNextFrame);
         }
 
