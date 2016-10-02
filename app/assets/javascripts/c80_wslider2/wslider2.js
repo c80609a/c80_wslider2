@@ -85,7 +85,7 @@ var Wslider2 = function (options) {
         _parallaxer = new Paralaxer(_$wimages);
 
         // если фреймов более 1 - добавляем иконку "кликните левой мышкой для смены кадра"
-        if (_$wimages.length > 1) {
+        if (_images.length > 1) {
             _left_click_icon = new LeftClickIcon(_$wrapper, _fNextFrame);
         }
 
