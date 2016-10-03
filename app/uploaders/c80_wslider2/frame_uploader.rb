@@ -80,6 +80,11 @@ module C80Wslider2
       original_h * k
     end
 
+    # def is_landscape? picture
+    #   image = MiniMagick::Image.open(picture.path)
+    #   image[:width] > image[:height]
+    # end
+
   end
 
 end
