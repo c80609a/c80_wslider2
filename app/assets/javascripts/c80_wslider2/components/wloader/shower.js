@@ -41,7 +41,10 @@ var Shower = function ($wimages) {
     var _fPutTextInFrame = function ($div,props) {
         //console.log("<_fPutTextInFrame>");
         //console.log(props); // Object {title: "Оптовая торговля жидкостями для электронных сигарет"}
-        $div.find('h1').text(props["title"]);
+
+        if (props != undefined) {
+            $div.find('h1').text(props["title"]);
+        }
 
         _fCenterFrameTitle($div);
 
