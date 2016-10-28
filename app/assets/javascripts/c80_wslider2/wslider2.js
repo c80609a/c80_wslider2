@@ -82,7 +82,7 @@ var Wslider2 = function (options) {
         );
 
         // добавляем параллакс
-        _parallaxer = new Paralaxer(_$wimages);
+        _parallaxer = new Paralaxer(_$wimages, _$wrapper);
 
         // если фреймов более 1 - добавляем иконку "кликните левой мышкой для смены кадра"
         if (_images.length > 1) {
